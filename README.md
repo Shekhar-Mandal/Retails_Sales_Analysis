@@ -1,12 +1,17 @@
-# Retail Sales Analysis SQL Project
+# Retail Sales Analysis SQL Project (p1)
 
 ## Project Overview
+Author :Shekhar Mandal
 
 **Project Title**: Retail Sales Analysis  
 **Level**: Beginner  
-**Database**: `p1_retail_db`
+**Database**: `SQl_project_p1`
+---
+This project involves the analysis of a retail sales dataset using SQL. The primary goal is to clean, explore, and derive meaningful business insights from the sales data stored in a relational database. The dataset contains transactional sales information including customer details, product categories, quantities, prices, and timestamps.
 
-This project is designed to demonstrate SQL skills and techniques typically used by data analysts to explore, clean, and analyze retail sales data. The project involves setting up a retail sales database, performing exploratory data analysis (EDA), and answering specific business questions through SQL queries. This project is ideal for those who are starting their journey in data analysis and want to build a solid foundation in SQL.
+Using various SQL queries, the project focuses on data cleaning, summarization, and answering key business intelligence questions related to sales performance, customer behavior, and product categories.
+
+---
 
 ## Objectives
 
@@ -23,6 +28,28 @@ This project is designed to demonstrate SQL skills and techniques typically used
 - **Table Creation**: A table named `retail_sales` is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 
 ```sql
+
+
+
+## Dataset Schema
+
+The dataset is stored in a table called `Retail_sales_analysis` with these columns:
+
+| Column           | Data Type     | Description                        |
+|------------------|---------------|----------------------------------|
+| transactions_id  | INT (Primary Key) | Unique identifier for each sale |
+| sale_date        | DATE          | Date of sale                     |
+| sale_time        | TIME          | Time of sale                     |
+| customer_id      | INT           | Customer identifier              |
+| gender           | VARCHAR(7)    | Customer gender                  |
+| age              | INT           | Customer age                    |
+| category         | VARCHAR(15)   | Product category                |
+| quantiy          | INT           | Quantity sold                   |
+| price_per_unit   | INT           | Price per unit                  |
+| cogs             | FLOAT         | Cost of goods sold              |
+| total_sale       | FLOAT         | Total sale amount               |
+
+---
 CREATE DATABASE p1_retail_db;
 
 CREATE TABLE retail_sales
@@ -79,15 +106,15 @@ WHERE sale_date = '2022-11-05';
 
 2. **Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 4 in the month of Nov-2022**:
 ```sql
+
 SELECT 
   *
-FROM retail_sales
+FROM retail_sales_analysis
 WHERE 
-    category = 'Clothing'
-    AND 
-    TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
-    AND
-    quantity >= 4
+  category = 'Clothing'
+  AND quantiy > 3
+  AND sale_date BETWEEN DATE '2022-11-01' AND DATE '2022-11-30';
+
 ```
 
 3. **Write a SQL query to calculate the total sales (total_sale) for each category.**:
@@ -187,41 +214,14 @@ FROM hourly_sale
 GROUP BY shift
 ```
 
-## Findings
-
-- **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
-- **High-Value Transactions**: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
-- **Sales Trends**: Monthly analysis shows variations in sales, helping identify peak seasons.
-- **Customer Insights**: The analysis identifies the top-spending customers and the most popular product categories.
-
-## Reports
-
-- **Sales Summary**: A detailed report summarizing total sales, customer demographics, and category performance.
-- **Trend Analysis**: Insights into sales trends across different months and shifts.
-- **Customer Insights**: Reports on top customers and unique customer counts per category.
 
 ## Conclusion
 
 This project serves as a comprehensive introduction to SQL for data analysts, covering database setup, data cleaning, exploratory data analysis, and business-driven SQL queries. The findings from this project can help drive business decisions by understanding sales patterns, customer behavior, and product performance.
 
-## How to Use
-
-1. **Clone the Repository**: Clone this project repository from GitHub.
-2. **Set Up the Database**: Run the SQL scripts provided in the `database_setup.sql` file to create and populate the database.
-3. **Run the Queries**: Use the SQL queries provided in the `analysis_queries.sql` file to perform your analysis.
-4. **Explore and Modify**: Feel free to modify the queries to explore different aspects of the dataset or answer additional business questions.
+ree to modify the queries to explore different aspects of the dataset or answer additional business questions.
 
 ## Author - Zero Analyst
 
 This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
 
-### Stay Updated and Join the Community
-
-For more content on SQL, data analysis, and other data-related topics, make sure to follow me on social media and join our community:
-
-- **YouTube**: [Subscribe to my channel for tutorials and insights](https://www.youtube.com/@zero_analyst)
-- **Instagram**: [Follow me for daily tips and updates](https://www.instagram.com/zero_analyst/)
-- **LinkedIn**: [Connect with me professionally](https://www.linkedin.com/in/najirr)
-- **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
-
-Thank you for your support, and I look forward to connecting with you!
