@@ -1,4 +1,4 @@
-# Retail Sales Analysis SQL Project (p1)
+# Retail Sales Analysis SQL Project (P1)
 
 ## Project Overview
 Author :Shekhar Mandal
